@@ -12,13 +12,15 @@ BuildRequires:	libpcap-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Tcpflow is program that captures data transmitted as part of TCP connections,
-and and stores the data in a way that is convenient for protocol analysis or
-debugging. Tcpflow stores all captured data in two files per connection.
+Tcpflow is program that captures data transmitted as part of TCP
+connections, and and stores the data in a way that is convenient
+for protocol analysis or debugging. Tcpflow stores all captured
+data in two files per connection.
 
 %description -l pl
-Tcpflow jest programem, który przechwytuje dane transmitowane przez protokó³
-TCP i zapisuje je, tworz±c dwa pliki z danymi na ka¿de przechwycone po³±czenie.
+Tcpflow jest programem, który przechwytuje dane transmitowane przez
+protokó³ TCP i zapisuje je, tworz±c dwa pliki z danymi na ka¿de
+przechwycone po³±czenie.
 
 %prep
 %setup -q
