@@ -8,6 +8,8 @@ Group:		Applications/Networking
 Source0:	http://www.circlemud.org/pub/jelson/tcpflow/%{name}-%{version}.tar.gz
 # Source0-md5:	45a5aef6f043312315b7f342afc4a9c5
 URL:		http://www.circlemud.org/~jelson/software/tcpflow/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libpcap-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -18,9 +20,10 @@ for protocol analysis or debugging. Tcpflow stores all captured
 data in two files per connection.
 
 %description -l pl
-Tcpflow jest programem, który przechwytuje dane transmitowane przez
-protokó³ TCP i zapisuje je, tworz±c dwa pliki z danymi na ka¿de
-przechwycone po³±czenie.
+Tcpflow jest programem, który przechwytuje dane przesy³ane w ramach
+po³±czeñ TCP i zapisuje je w sposób wygodny do analizy lub ¶ledzenia
+protoko³u - tworz±c dwa pliki z danymi na ka¿de przechwycone
+po³±czenie.
 
 %prep
 %setup -q
@@ -35,6 +38,7 @@ przechwycone po³±czenie.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
