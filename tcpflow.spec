@@ -1,5 +1,5 @@
 Summary:	TCP Flow Recorder
-Summary(pl.UTF-8):   Program zapisujący ruch TCP
+Summary(pl.UTF-8):	Program zapisujący ruch TCP
 Name:		tcpflow
 Version:	0.21
 Release:	2
