@@ -1,5 +1,5 @@
 Summary:	TCP Flow Recorder
-Summary(pl):	Program zapisuj±cy ruch TCP
+Summary(pl.UTF-8):   Program zapisujÄ…cy ruch TCP
 Name:		tcpflow
 Version:	0.21
 Release:	2
@@ -19,11 +19,11 @@ connections, and and stores the data in a way that is convenient
 for protocol analysis or debugging. Tcpflow stores all captured
 data in two files per connection.
 
-%description -l pl
-Tcpflow jest programem, który przechwytuje dane przesy³ane w ramach
-po³±czeñ TCP i zapisuje je w sposób wygodny do analizy lub ¶ledzenia
-protoko³u - tworz±c dwa pliki z danymi na ka¿de przechwycone
-po³±czenie.
+%description -l pl.UTF-8
+Tcpflow jest programem, ktÃ³ry przechwytuje dane przesyÅ‚ane w ramach
+poÅ‚Ä…czeÅ„ TCP i zapisuje je w sposÃ³b wygodny do analizy lub Å›ledzenia
+protokoÅ‚u - tworzÄ…c dwa pliki z danymi na kaÅ¼de przechwycone
+poÅ‚Ä…czenie.
 
 %prep
 %setup -q
