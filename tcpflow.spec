@@ -2,7 +2,7 @@ Summary:	TCP Flow Recorder
 Summary(pl.UTF-8):	Program zapisujący ruch TCP
 Name:		tcpflow
 Version:	0.21
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.circlemud.org/pub/jelson/tcpflow/%{name}-%{version}.tar.gz
