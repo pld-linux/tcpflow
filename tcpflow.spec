@@ -2,18 +2,33 @@ Summary:	TCP Flow Recorder
 Summary(pl.UTF-8):	Program zapisujący ruch TCP
 Name:		tcpflow
 Version:	1.4.4
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		Applications/Networking
 Source0:	http://www.digitalcorpora.org/downloads/tcpflow/%{name}-%{version}.tar.gz
 # Source0-md5:	f395fea6f5fe136543f4c982beff9cba
+Patch0:		0001-using-the-debian-package-of-libhttp-parser-instead-o.patch
+Patch1:		0003-fixed-handling-of-fputc.patch
+Patch2:		0004-fixed-handling-of-fputc.patch
+Patch3:		0005-fixed-per-https-bugs.debian.org-cgi-bin-bugreport.cg.patch
+Patch4:		0006-fixed-so-that-it-properly-gets-default-device-if-no-.patch
 URL:		http://www.circlemud.org/~jelson/software/tcpflow/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	boost-devel
+BuildRequires:	bzip2-devel
 BuildRequires:	cairo-devel
+BuildRequires:	expat-devel
+BuildRequires:	fontconfig-devel
+BuildRequires:	freetype-devel
+BuildRequires:	http-parser-devel
+BuildRequires:	libewf-devel
+BuildRequires:	libmd-devel
 BuildRequires:	libpcap-devel
+#BuildRequires:	libregex-devel
+#BuildRequires:	lightgrep-devel
 BuildRequires:	openssl-devel
+BuildRequires:	pixman-devel
 BuildRequires:	sqlite3-devel
 BuildRequires:	tre-devel
 BuildRequires:	zlib-devel
@@ -33,6 +48,11 @@ połączenie.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
 %{__aclocal} -I m4

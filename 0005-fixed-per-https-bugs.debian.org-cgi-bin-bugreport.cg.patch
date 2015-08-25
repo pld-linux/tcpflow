@@ -1,0 +1,24 @@
+From: Simson Garfinkel <simsong@acm.org>
+Date: Fri, 30 May 2014 07:07:50 -0400
+Subject: fixed per https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=736417
+Forwarded: yes. merged upstream at https://github.com/simsong/tcpflow/commit/7df3db6874fb1a596c1e9673eabaf15be81e59be
+
+---
+ src/tcpip.cpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/tcpip.cpp b/src/tcpip.cpp
+index 86ad6df..8a37413 100644
+--- a/src/tcpip.cpp
++++ b/src/tcpip.cpp
+@@ -268,8 +268,9 @@ void tcpip::print_packet(const u_char *data, uint32_t length)
+                     exit(1);
+                 
+                 }
+-                written += 1;
+ 	    }
++            written += 1; // treat even unprintable characters as "written". It
++                          // really means "processed"
+ 	}
+     }
+     else {

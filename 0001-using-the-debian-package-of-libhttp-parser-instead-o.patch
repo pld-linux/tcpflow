@@ -1,0 +1,48 @@
+From: Dima Kogan <dima@secretsauce.net>
+Date: Wed, 4 Dec 2013 19:37:48 -0800
+Subject: using the debian package of libhttp-parser instead of this one
+Forwarded: not needed
+
+---
+ src/Makefile.am   | 10 ++--------
+ src/scan_http.cpp |  2 +-
+ 2 files changed, 3 insertions(+), 9 deletions(-)
+
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 67a6fa4..a80fc09 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -75,18 +75,12 @@ tcpflow_SOURCES = \
+ 	scan_wifiviz.cpp \
+ 	pcap_writer.h \
+ 	iptree.h \
+-	http-parser/http_parser.c \
+-	http-parser/http_parser.h \
+ 	mime_map.cpp \
+ 	mime_map.h 
+ 
++tcpflow_LDADD = -lhttp_parser
++
+ EXTRA_DIST =\
+-	http-parser/AUTHORS \
+-	http-parser/CONTRIBUTIONS \
+-	http-parser/LICENSE-MIT \
+-	http-parser/Makefile \
+-	http-parser/README.md \
+-	http-parser/http_parser.gyp \
+ 	wifipcap/README.txt \
+ 	wifipcap/TimeVal.cpp \
+ 	wifipcap/TimeVal.h \
+diff --git a/src/scan_http.cpp b/src/scan_http.cpp
+index 78abb98..2460694 100644
+--- a/src/scan_http.cpp
++++ b/src/scan_http.cpp
+@@ -11,7 +11,7 @@
+ #include "tcpip.h"
+ #include "tcpdemux.h"
+ 
+-#include "http-parser/http_parser.h"
++#include <http_parser.h>
+ 
+ #include "mime_map.h"
+ 
