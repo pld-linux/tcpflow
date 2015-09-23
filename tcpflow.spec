@@ -5,9 +5,8 @@ Version:	1.4.5
 Release:	1
 License:	GPL v3
 Group:		Applications/Networking
-# Source0:	http://www.digitalcorpora.org/downloads/tcpflow/%{name}-%{version}.tar.gz
-Source0:	%{name}-%{version}.tar.gz
-# Source0-md5:	002da34f43552946299e89c176a48da3
+Source0:	http://www.digitalcorpora.org/downloads/tcpflow/%{name}-%{version}.tar.gz
+# Source0-md5:	5978b112a899f2099e98cef6d9a0ece9
 Patch0:		0001-using-the-debian-package-of-libhttp-parser-instead-o.patch
 URL:		http://www.circlemud.org/~jelson/software/tcpflow/
 BuildRequires:	autoconf
@@ -15,6 +14,7 @@ BuildRequires:	automake
 BuildRequires:	boost-devel
 BuildRequires:	bzip2-devel
 BuildRequires:	cairo-devel
+#BuildRequires:	exiv2-devel
 BuildRequires:	expat-devel
 BuildRequires:	fontconfig-devel
 BuildRequires:	freetype-devel
