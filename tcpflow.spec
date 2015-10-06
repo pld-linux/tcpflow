@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	cairo		# disable Cairo even if present
+
 Summary:	TCP Flow Recorder
 Summary(pl.UTF-8):	Program zapisujący ruch TCP
 Name:		tcpflow
@@ -8,7 +12,7 @@ Group:		Applications/Networking
 Source0:	http://www.digitalcorpora.org/downloads/tcpflow/%{name}-%{version}.tar.gz
 # Source0-md5:	5978b112a899f2099e98cef6d9a0ece9
 Patch0:		0001-using-the-debian-package-of-libhttp-parser-instead-o.patch
-URL:		http://www.circlemud.org/~jelson/software/tcpflow/
+URL:		https://github.com/simsong/tcpflow
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	boost-devel
@@ -33,9 +37,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Tcpflow is program that captures data transmitted as part of TCP
-connections, and and stores the data in a way that is convenient
-for protocol analysis or debugging. Tcpflow stores all captured
-data in two files per connection.
+connections, and and stores the data in a way that is convenient for
+protocol analysis or debugging. Tcpflow stores all captured data in
+two files per connection.
 
 %description -l pl.UTF-8
 Tcpflow jest programem, który przechwytuje dane przesyłane w ramach
@@ -52,7 +56,8 @@ połączenie.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	%{!?with_cairo:--enable-cairo=false}
 %{__make}
 
 %install
@@ -67,5 +72,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO.txt
-%attr(755,root,root) %{_bindir}/%{name}
-%{_mandir}/man1/*.1*
+%attr(755,root,root) %{_bindir}/tcpflow
+%{_mandir}/man1/tcpflow.1*
