@@ -23,7 +23,6 @@ BuildRequires:	expat-devel
 BuildRequires:	fontconfig-devel
 BuildRequires:	freetype-devel
 BuildRequires:	http-parser-devel
-BuildRequires:	libewf-devel
 BuildRequires:	libmd-devel
 BuildRequires:	libpcap-devel
 #BuildRequires:	libregex-devel
