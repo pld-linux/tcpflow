@@ -1,12 +1,12 @@
 #
 # Conditional build:
-%bcond_without	cairo		# disable Cairo even if present
+%bcond_with	cairo		# disable Cairo even if present
 
 Summary:	TCP Flow Recorder
 Summary(pl.UTF-8):	Program zapisujący ruch TCP
 Name:		tcpflow
 Version:	1.4.5
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		Applications/Networking
 Source0:	http://www.digitalcorpora.org/downloads/tcpflow/%{name}-%{version}.tar.gz
@@ -17,7 +17,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	boost-devel
 BuildRequires:	bzip2-devel
-BuildRequires:	cairo-devel
+%{?with_cairo:BuildRequires:	cairo-devel}
 #BuildRequires:	exiv2-devel
 BuildRequires:	expat-devel
 BuildRequires:	fontconfig-devel
