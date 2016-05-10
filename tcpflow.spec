@@ -6,12 +6,14 @@ Summary:	TCP Flow Recorder
 Summary(pl.UTF-8):	Program zapisujący ruch TCP
 Name:		tcpflow
 Version:	1.4.5
-Release:	2
+Release:	3
 License:	GPL v3
 Group:		Applications/Networking
 Source0:	http://www.digitalcorpora.org/downloads/tcpflow/%{name}-%{version}.tar.gz
 # Source0-md5:	5978b112a899f2099e98cef6d9a0ece9
 Patch0:		0001-using-the-debian-package-of-libhttp-parser-instead-o.patch
+Patch1:		0001-tcpflow-b-0-now-works.patch
+Patch2:		packing-struct-tcphdr-to-improve-portability.patch
 URL:		https://github.com/simsong/tcpflow
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -49,6 +51,8 @@ połączenie.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 %{__aclocal} -I m4
@@ -56,6 +60,7 @@ połączenie.
 %{__autoheader}
 %{__automake}
 %configure \
+	CPPFLAGS="%{rpmcppflags} -std=c++11" \
 	%{!?with_cairo:--enable-cairo=false}
 %{__make}
 

@@ -1,0 +1,23 @@
+From: Dima Kogan <dima@secretsauce.net>
+Date: Sun, 12 Jan 2014 23:58:39 -0800
+Subject: packing struct tcphdr to improve portability
+Forwarded: https://github.com/simsong/tcpflow/issues/67
+
+I was seeing build failures on arm and sparc. These were happening because of
+unaligned loads of struct tcphdr. I now declare this structure as packed, so
+this does not happen
+
+
+Index: tcpflow/src/be13_api/bulk_extractor_i.h
+===================================================================
+--- tcpflow.orig/src/be13_api/bulk_extractor_i.h
++++ tcpflow/src/be13_api/bulk_extractor_i.h
+@@ -278,7 +278,7 @@ namespace be13 {
+     uint16_t th_win;            /* window */
+     uint16_t th_sum;            /* checksum */
+     uint16_t th_urp;            /* urgent pointer */
+-};
++} __attribute__((packed));
+ /*
+  * The packet_info structure records packets after they are read from the pcap library.
+  * It preserves the original pcap information and information decoded from the MAC and
