@@ -8,12 +8,12 @@ Forwarded: not needed
  src/scan_http.cpp |  2 +-
  2 files changed, 3 insertions(+), 9 deletions(-)
 
-diff --git a/src/Makefile.am b/src/Makefile.am
-index 67a6fa4..a80fc09 100644
---- a/src/Makefile.am
-+++ b/src/Makefile.am
-@@ -75,18 +75,12 @@ tcpflow_SOURCES = \
- 	scan_wifiviz.cpp \
+Index: tcpflow/src/Makefile.am
+===================================================================
+--- tcpflow.orig/src/Makefile.am
++++ tcpflow/src/Makefile.am
+@@ -90,20 +90,14 @@ tcpflow_SOURCES = \
+ 	scan_netviz.cpp \
  	pcap_writer.h \
  	iptree.h \
 -	http-parser/http_parser.c \
@@ -24,6 +24,8 @@ index 67a6fa4..a80fc09 100644
 +tcpflow_LDADD = -lhttp_parser
 +
  EXTRA_DIST =\
+ 	inet_ntop.c \
+ 	inet_ntop.h \
 -	http-parser/AUTHORS \
 -	http-parser/CONTRIBUTIONS \
 -	http-parser/LICENSE-MIT \
@@ -33,10 +35,10 @@ index 67a6fa4..a80fc09 100644
  	wifipcap/README.txt \
  	wifipcap/TimeVal.cpp \
  	wifipcap/TimeVal.h \
-diff --git a/src/scan_http.cpp b/src/scan_http.cpp
-index 78abb98..2460694 100644
---- a/src/scan_http.cpp
-+++ b/src/scan_http.cpp
+Index: tcpflow/src/scan_http.cpp
+===================================================================
+--- tcpflow.orig/src/scan_http.cpp
++++ tcpflow/src/scan_http.cpp
 @@ -11,7 +11,7 @@
  #include "tcpip.h"
  #include "tcpdemux.h"
