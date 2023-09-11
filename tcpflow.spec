@@ -5,13 +5,14 @@
 Summary:	TCP Flow Recorder
 Summary(pl.UTF-8):	Program zapisujący ruch TCP
 Name:		tcpflow
-Version:	1.5.2
-Release:	2
+Version:	1.6.1
+Release:	1
 License:	GPL v3
 Group:		Applications/Networking
-Source0:	http://ftp.debian.org/debian/pool/main/t/tcpflow/%{name}_%{version}+repack1.orig.tar.gz
-# Source0-md5:	4348cdfa9e1d61a459d1f696204fbeff
-Patch0:		0001-using-the-debian-package-of-libhttp-parser-instead-o.patch
+Source0:	http://digitalcorpora.org/downloads/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	4946a730747260cbd69e23bb0659b45b
+Patch0:		format-security.patch
+Patch1:		no-python.patch
 URL:		https://github.com/simsong/tcpflow
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -48,8 +49,9 @@ protokołu - tworząc dwa pliki z danymi na każde przechwycone
 połączenie.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal} -I m4
@@ -57,7 +59,7 @@ połączenie.
 %{__autoheader}
 %{__automake}
 %configure \
-	CPPFLAGS="%{rpmcppflags} -std=c++11" \
+	--without-o3 \
 	%{!?with_cairo:--enable-cairo=false}
 %{__make}
 
@@ -72,6 +74,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README.md TODO.txt
+%doc AUTHORS ChangeLog NEWS TODO.txt
 %attr(755,root,root) %{_bindir}/tcpflow
 %{_mandir}/man1/tcpflow.1*

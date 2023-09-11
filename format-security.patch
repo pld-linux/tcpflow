@@ -1,0 +1,11 @@
+--- tcpflow-1.6.1/src/datalink.cpp~	2021-02-19 01:46:09.000000000 +0100
++++ tcpflow-1.6.1/src/datalink.cpp	2023-09-11 16:08:06.627029753 +0200
+@@ -174,7 +174,7 @@
+         std::string s(std::string("warning: caught std::logic_error ")
+                       + e.what()
+                       + std::string(" in packet"));
+-        DEBUG(6)(s.c_str());
++        DEBUG(6)("%s", s.c_str());
+     }
+ }
+ 
